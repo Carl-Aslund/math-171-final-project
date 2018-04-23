@@ -1,0 +1,44 @@
+\documentclass[ebook,12pt,oneside,openany]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{url}
+
+\renewcommand\labelenumi{(\theenumi)}
+
+\title{Group Actions and the Orbit-Stabilizer Theorem}
+\author{Carl Aslund}
+
+\begin{document}
+	\maketitle
+	
+	\noindent The following content was copied from \url{https://brilliant.org/wiki/group-actions/}, with some slight reformatting and omissions as I felt was appropriate.\\
+	
+	A \textbf{group action} of a group $G$ on a set $X$ is a function $f:G \times X \rightarrow X$ satisfying both of the following properties:
+	
+	\begin{enumerate}
+		\item $f(e_G, x)=x$ for all $x \in X$
+		\item $f(gh, x)=f(g,f(h,x))$ for all $g,h \in G$ and $x \in X$.
+	\end{enumerate}
+	
+	A group action also includes several associated terms to describe various properties for a group $G$ acting on a set $X$:
+	
+	\begin{itemize}
+		\item A \textbf{fixed point} of an element $g \in G$ is an element $x \in X$ such that $f(g,x)=x$.
+		\item The \textbf{stabilizer} $G_x$ of an element $x \in X$ is the set of all elements $g \in G$ such that $x$ is a fixed point of $g$.
+		\item The \textbf{orbit} $O_x$ of an element $x \in X$ is the set of elements $Y=\{y \in X : f(g,x)=y$ for some $g \in G\}$.
+	\end{itemize}
+
+	Let $G$ be a group acting on $X$. Choose an element $x \in X$ and consider the function $f_x : G \rightarrow X$ defined as $f_x(g)=f(g,x)$. This yields another function $h_x:G/G_x \rightarrow X$ given by the same formula, where $G_x$ is the stabilizer of $x$. Note that $h_x$ is injective, and its image is $O_x$, so there must exist a bijection between $G/G_x$ and $O_x$.
+	
+	\textbf{Theorem (Orbit-Stabilizer Theorem).} Let $G$ be a group acting on a set $X$. Let $G_x$ be the stabilizer of an element $x \in X$. Suppose that the orbit $O_x$ of $x \in X$ is finite. Then the index $|G:G_x|$ is finite and equal to $|O_x|$.  If $G$ is finite, then
+	\begin{center}
+		$|G_x| \cdot |O_x| = |G|$.
+	\end{center}
+	
+	\textbf{Example}. \textit{How many rotational symmetries does a cube have?}
+	
+	To address this question, let $G$ be group of symmetries of the cube, which acts on the set of faces $F$ of the cube. Note that since there are six faces, there are six options for a starting face that could be rotated away to bring a particular face $f \in F$ to the same position, so $|O_f|=6$.
+	
+	Also, for any face $f \in F$, there are four rotations that will preserve the position of that face, the identity rotation, and rotations of 90, 180, or 270 degrees along the axis perpendicular to the face. Thus, $|G_f|=4$, and by the Orbit-stabilizer Theorem, $|G|=|G_f| \cdot |O_f|=4 \cdot 6 = 24$. Thus, a cube has 24 rotational symmetries.
+	
+\end{document}
